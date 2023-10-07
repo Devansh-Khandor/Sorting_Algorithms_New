@@ -1,0 +1,66 @@
+//Selection Sort Algorithm- Find the minimum element and replace(swap) it with the current element in the unsorted array
+
+ALGORITHM:
+
+//array with length n
+for(int i=0;i<n-1;i++)
+{
+  int min_ind=i;
+  for(int j=i+1;j<n;j++)
+  {
+    if(arr[j]<arr[min_ind])
+    {
+      j=min_ind;
+    }
+  }
+  int temp=arr[mid_ind];
+  arr[mid_ind]=arr[i];
+  arr[i]=temp;
+}
+
+
+CODE:
+
+import java.util.*;
+class Selection_Sort
+{
+    public static void sort(int arr[])
+    {
+        for(int i=0;i<arr.length-1;i++)
+        {
+            int min_ind=i;
+            for(int j=i+1;j<arr.length;j++)
+            {
+                if(arr[j]<arr[min_ind])
+                {
+                    min_ind=j;    
+                }
+            }
+            
+            int temp=arr[min_ind];
+            arr[min_ind]=arr[i];
+            arr[i]=temp;
+        }
+    }
+    public static void print(int arr[])
+    {
+        for(int i=0;i<arr.length;i++)
+        {
+            System.out.print(arr[i]+" ");
+        }
+    }
+    public static void main()
+    {
+        Scanner ob =new Scanner(System.in);
+        System.out.println("Enter number of elements in the array");
+        int n=ob.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            System.out.print("Enter the Element "+(i+1)+": ");
+            arr[i]=ob.nextInt();
+        }
+        sort(arr);
+        print(arr);
+    }
+}
